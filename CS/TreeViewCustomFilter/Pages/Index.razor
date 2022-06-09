@@ -1,0 +1,43 @@
+﻿@page "/"
+@using TreeViewCustomFilter.Data
+@using System.Text.RegularExpressions;
+
+<DxTreeView Data="@OfficeLocation.Offices"
+            @bind-FilterString=FilterString
+            ShowFilterPanel="true"
+            CustomFilter=@CustomFilter>
+    <NodeTextTemplate>
+        <span>
+            @Template(context)
+        </span>
+    </NodeTextTemplate>
+    <DataMappings>
+        <DxTreeViewDataMapping Key="Id" ParentKey="ParentId" Text="Name" />
+    </DataMappings>
+</DxTreeView>
+
+@code {
+   static IEnumerable<string> SplitByComma(string value) => value
+           .Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+   string? FilterString { get; set; }
+   bool CustomFilter(ITreeViewNodeInfo info) {
+       return SplitByComma(info.FilterInfo.Value)
+           .Any(word => info.Text.Contains(word, StringComparison.InvariantCultureIgnoreCase));
+   }
+   RenderFragment Template(ITreeViewNodeInfo info) {
+       if(!info.FilterInfo.IsApplied)
+           return @<text>@info.Text</text>;
+       var words = SplitByComma(info.FilterInfo.Value);
+       var pattern = $"(" + string.Join(")|(", words) + ")";
+       var matched = Regex.Split(info.Text, pattern, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+       return
+           @<text>
+               @foreach(var m in matched) {
+                   @if(Regex.IsMatch(m, pattern, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant)) {
+                       <span class="dxbl-filter-content">@m</span>
+                   }
+                   else { @m }
+               }
+           </text>;
+   }
+}
