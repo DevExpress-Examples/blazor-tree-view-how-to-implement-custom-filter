@@ -16,7 +16,7 @@ The filter accepts the [NavigationFilterInfo](http://docs.devexpress.com/Blazor/
 
 ## Files to Look At
 
-Index.razor
+[Index.razor](CS/TreeViewCustomFilter/Pages/Index.razor)
 
 <!-- default file list end -->
 
