@@ -22,4 +22,4 @@ The filter accepts the [NavigationFilterInfo](http://docs.devexpress.com/Blazor/
 
 ## Documentation
 
-[TreeView – Search](http://docs.devexpress.com/Blazor/DevExpress.Blazor.DxTreeView#filter-nodes)
+[TreeView - Filter Nodes](http://docs.devexpress.com/Blazor/DevExpress.Blazor.DxTreeView#filter-nodes)
