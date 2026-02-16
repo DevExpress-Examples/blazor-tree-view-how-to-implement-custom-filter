@@ -25,7 +25,7 @@ The filter accepts the [NavigationFilterInfo](http://docs.devexpress.com/Blazor/
 
 [TreeView - Filter Nodes](http://docs.devexpress.com/Blazor/DevExpress.Blazor.DxTreeView#filter-nodes)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-treeview-implement-custom-filter&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-treeview-implement-custom-filter&~~~was_helpful=no)
 
